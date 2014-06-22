@@ -34,6 +34,10 @@ bar {
   modifier $mod
   status_command i3status
   tray_output LVDS1
+  
+  colors {
+    urgent_workspace   #2f343a #900000 #ffffff
+  }
 }
 
 # Thinkpad
@@ -200,3 +204,4 @@ exec ~/.i3/autostart.sh
 exec uxterm
 exec google-chrome
 exec weechat
+exec --no-startup-id nm-applet
