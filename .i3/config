@@ -33,7 +33,7 @@ bar {
   #mode hide
   modifier $mod
   status_command i3status
-  tray_output LVDS1
+  tray_output DP2
   
   colors {
     urgent_workspace   #2f343a #900000 #ffffff
@@ -59,12 +59,12 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+quotedbl kill
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec dmenu_run
+#bindsym $mod+e exec dmenu_run
 #bindsym $mod+e exec /home/shawn/.cabal/bin/yeganesh 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+e exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -91,7 +91,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+d split h
+# bindsym $mod+d split h
 
 # split in vertical orientation
 bindsym $mod+k split v
@@ -178,6 +178,19 @@ bindsym $mod+p mode "resize"
 #bar {
 #        status_command i3status
 #}
+
+# workspace screens
+#workspace 1 output DP2
+#workspace 2 output DP2
+#workspace 3 output HDMI3
+#workspace 4 output HDMI3
+#workspace 5 output LVDS1
+#workspace 6 output LVDS1
+#workspace 7 output LVDS1
+#workspace 8 output LVDS1
+#workspace 9 output LVDS1
+#workspace 10 output LVDS1
+
 for_window [class="^XCalc$"] floating enable
 for_window [class="^URxvt$" instance="scratchpad"] border 1pixel; move scratchpad
 for_window [class="^Google-chrome$"] border 1pixel
@@ -200,8 +213,19 @@ for_window [title="^Renoise"] border none; fullscreen
 for_window [class="^Sflphone$"] floating enable
 for_window [class="^Workrave$"] floating enable
 
-exec ~/.i3/autostart.sh
-exec uxterm
-exec google-chrome
-exec weechat
-exec --no-startup-id nm-applet
+# next/previous workspace
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
+bindsym $mod+Tab focus down
+
+#bindcode 108 exec --no-startup-id /home/shawn/web/LiSpeak/hotkey
+#bindsym $mod+/ move workspace to output left
+#bindsym $mod+= move workspace to output left
+
+exec --no-startup-id ~/.i3/autostart.sh
+exec --no-startup-id i3-msg 'workspace 1; gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 1; google-chrome'
+exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal -x weechat'
+#exec --no-startup-id screencloud
+#exec --no-startup-id nm-applet
+#exec /home/shawn/Apps/Copy/x86_64/CopyAgent 
