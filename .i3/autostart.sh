@@ -53,8 +53,8 @@ sleep 5s && xmodmap /home/shawn/.Xmodmap &
 
 # configure natural scrolling for touchpad
 # configure normal scrolling for mouse
-sleep 5s && xinput --set-button-map 'Logitech Unifying Device. Wireless PID:1017' 1 2 3 5 4 &
-sleep 5s && xinput --set-button-map 11 1 2 3 5 4 &
+xinput --set-button-map 'Logitech Unifying Device. Wireless PID:1017' 1 2 3 4 5
+xinput --set-button-map 11 1 2 3 5 4 
 
 
 # all done
