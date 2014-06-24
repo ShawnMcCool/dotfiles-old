@@ -33,7 +33,7 @@ bar {
   #mode hide
   modifier $mod
   status_command i3status
-  tray_output DP2
+  tray_output LVDS1
   
   colors {
     urgent_workspace   #2f343a #900000 #ffffff
@@ -41,12 +41,13 @@ bar {
 }
 
 # Thinkpad
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl 0 -- '-10%'; exec /usr/bin/killall -USR1 i3status
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl 0 -- '+10%'; exec /usr/bin/killall -USR1 i3status
-bindsym XF86AudioMute exec /usr/bin/pactl 0 0; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- '-10%'; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- '+10%'; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo 0; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
 bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
 bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
+
 
 # Microsoft keyboard
 
@@ -227,8 +228,7 @@ bindsym $mod+Tab focus down
 #bindsym $mod+= move workspace to output left
 
 exec --no-startup-id ~/.i3/autostart.sh
-exec --no-startup-id i3-msg 'workspace 1; gnome-terminal'
-exec --no-startup-id i3-msg 'workspace 1; google-chrome'
+exec --no-startup-id i3-msg 'workspace 1; exec google-chrome'
 exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal -x weechat'
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id pulseaudio --start
