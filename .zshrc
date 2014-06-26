@@ -78,7 +78,7 @@ setxkbmap dvorak
 #export TERM=screen-256color
 alias ltr="ls -ltr"
 alias lhtr="ls -lhtr"
-alias ga="git add ."
+alias ga="git add . -A"
 alias gc="git commit -a"
 alias vu="vagrant up"
 alias vl="VBoxManage list runningvms"
