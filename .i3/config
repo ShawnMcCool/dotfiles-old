@@ -226,7 +226,7 @@ for_window [class="^hl_linux$"] border none; fullscreen
 for_window [class="^hl2_linux$"] border none; fullscreen
 for_window [title="^Renoise"] border none; fullscreen
 for_window [class="^Sflphone$"] floating enable
-for_window [class="^Workrave$"] floating enable
+for_window [title="^Ranger$"] floating enable
 
 # next/previous workspace
 bindsym Mod1+Tab focus right
@@ -238,8 +238,8 @@ bindcode 108 exec --no-startup-id bash -l /home/shawn/temp/record.sh
 #bindsym $mod+= move workspace to output left
 
 exec --no-startup-id ~/.i3/autostart.sh
-exec --no-startup-id i3-msg 'workspace 1; exec google-chrome'
-exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal -x weechat'
+#exec --no-startup-id i3-msg 'workspace 1; exec google-chrome'
+#exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal -x weechat'
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id pulseaudio --start
 #exec --no-startup-id screencloud
@@ -250,3 +250,5 @@ client.focused #899ca1 #2E373D #899ca1
 client.focused_inactive #121212 #2e373d #899ca1
 client.urgent #CE0007 #2e373d #3ea1bc
 client.urgent #CE0007 #182131 #3ea1bc
+
+bindsym $mod+r exec --no-startup-id gnome-terminal -t Ranger -x /usr/bin/ranger

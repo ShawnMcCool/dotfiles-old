@@ -8,7 +8,8 @@
 xrdb -merge ~/.Xresources &
 
 ## Desktop background or picture
-feh --bg-scale "/home/shawn/Pictures/Wallpapers/linux.jpg" &
+#feh --bg-scale "/home/shawn/Pictures/Wallpapers/linux.jpg" &
+feh --bg-scale "/home/shawn/Pictures/black.png" &
 
 # default volume 
 pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo '50%' &
