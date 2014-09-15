@@ -57,6 +57,15 @@ sleep 5s && xmodmap /home/shawn/.Xmodmap &
 xinput --set-button-map 'Logitech Unifying Device. Wireless PID:1017' 1 2 3 4 5
 xinput --set-button-map 11 1 2 3 4 5 
 
+# start up scratchpad apps
+
+/usr/bin/gnome-terminal -t Ranger -x /usr/bin/ranger
+i3-msg move scratchpad
+
+/usr/bin/subl 
+i3-msg move scratchpad
+
+
 
 # all done
 exit 0
