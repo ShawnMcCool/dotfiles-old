@@ -265,3 +265,5 @@ client.urgent #CE0007 #182131 #3ea1bci
 
 bindsym $mod+r [title="^Ranger"] scratchpad show
 bindsym $mod+l [title="Sublime Text$"] scratchpad show
+
+focus_follows_mouse no
