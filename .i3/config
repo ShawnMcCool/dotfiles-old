@@ -33,7 +33,7 @@ bar {
   #mode hide
   modifier $mod
   status_command i3status
-  tray_output LVDS1
+  #tray_output LVDS1
   
   colors {
     urgent_workspace   #2f343a #900000 #ffffff
@@ -54,7 +54,7 @@ bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
 
 
 # scratcpad
-#bindsym $mod+m move scratchpad
+bindsym $mod+m move scratchpad
 #bindsym $mod+o scratchpad show
 
 # start a terminal
@@ -227,10 +227,10 @@ for_window [class="^hl2_linux$"] border none; fullscreen
 for_window [title="^Renoise"] border none; fullscreen
 for_window [class="^Sflphone$"] floating enable
 
-for_window [title="^Ranger$"] focus; floating enable;
+for_window [class="^Nautilus$"] focus; floating enable;
 #for_window [title="^Ranger$"] focus; border none
-for_window [title="^Ranger$"] focus; resize grow width 400px; resize grow height 400px;
-for_window [title="^Ranger$"] focus; move left 200px; move up 200px;
+#for_window [title="^Ranger$"] focus; resize grow width 400px; resize grow height 400px;
+#for_window [title="^Ranger$"] focus; move left 200px; move up 200px;
 
 for_window [title="Sublime Text$$"] focus; floating enable;
 #for_window [title="Sublime Text$$"] focus; border none
@@ -263,7 +263,14 @@ client.urgent #CE0007 #182131 #3ea1bci
 
 #bindsym $mod+r exec --no-startup-id gnome-terminal -t Ranger -x /usr/bin/ranger
 
-bindsym $mod+r [title="^Ranger"] scratchpad show
-bindsym $mod+l [title="Sublime Text$"] scratchpad show
-
 focus_follows_mouse no
+
+# startup sublime text as scratchpad
+exec --no-startup-id /usr/bin/subl
+bindsym $mod+l [title="Sublime Text$"] scratchpad show
+for_window [class="Sublime Text$"] move to scratchpad
+
+# startup nautilus as scratchpad
+exec --no-startup-id nautilus --no-desktop
+bindsym $mod+r [class="^Nautilus"] scratchpad show
+for_window [class="^Nautilus"] move to scratchpad

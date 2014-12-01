@@ -9,7 +9,8 @@ xrdb -merge ~/.Xresources &
 
 ## Desktop background or picture
 #feh --bg-scale "/home/shawn/Pictures/Wallpapers/linux.jpg" &
-feh --bg-scale "/home/shawn/Pictures/black.png" &
+#feh --bg-scale "/home/shawn/Pictures/black.png" &
+feh --bg-scale "/home/shawn/Pictures/Wallpapers/divided_kingdom.jpg" &
 
 # default volume 
 pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo '50%' &
@@ -30,14 +31,12 @@ setxkbmap dvorak
 # dpms timeouts. standby -> suspend -> off
 xset dpms 600 1200 2000 &
 
-#~/bin/configure-input-devices >/dev/null 2>&1 &
-
 # clipboard manager
 LC_ALL=C parcellite &
 # wifi manager
 LC_ALL=C nm-applet &
 # Copy.com cloud storage agent
-LC_ALL=C /home/shawn/Apps/Copy/x86_64/CopyAgent &
+LC_ALL=C /home/shawn/Apps/Copy/CopyAgent &
 LC_ALL=C screencloud &
 
 # notifier
@@ -59,11 +58,9 @@ xinput --set-button-map 11 1 2 3 4 5
 
 # start up scratchpad apps
 
-/usr/bin/gnome-terminal -t Ranger -x /usr/bin/ranger
-i3-msg move scratchpad
-
-/usr/bin/subl 
-i3-msg move scratchpad
+#/usr/bin/gnome-terminal -t Ranger -x /usr/bin/ranger && i3-msg move scratchpad
+#nautilus --no-desktop && i3-msg move scratchpad
+#/usr/bin/subl && i3-msg move scratchpad
 
 
 
