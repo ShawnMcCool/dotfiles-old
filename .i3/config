@@ -41,8 +41,8 @@ bar {
 }
 
 # Thinkpad
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- '-10%'; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- '+10%'; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- '-5%'; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- '+5%'; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo 0; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
 bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
 bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
