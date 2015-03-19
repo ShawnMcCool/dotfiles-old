@@ -234,8 +234,10 @@ for_window [class="^Nautilus$"] focus; floating enable;
 
 for_window [title="Sublime Text$$"] focus; floating enable;
 #for_window [title="Sublime Text$$"] focus; border none
-for_window [title="Sublime Text$$"] focus; resize grow width 400px; resize grow height 400px;
-for_window [title="Sublime Text$$"] focus; move left 200px; move up 200px;
+#for_window [title="Sublime Text$$"] focus; resize grow width 400px; resize grow height 400px;
+#for_window [title="Sublime Text$$"] focus; move left 200px; move up 200px;
+
+for_window [title="Pier Solar HD"] floating_minimum_size 1600 x 900
 
 
 # next/previous workspace
@@ -243,7 +245,7 @@ bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 bindsym $mod+Tab focus down
 
-bindcode 108 exec --no-startup-id bash -l /home/shawn/temp/record.sh
+#bindcode 108 exec --no-startup-id bash -l /home/shawn/temp/record.sh
 #bindsym $mod+/ move workspace to output left
 #bindsym $mod+= move workspace to output left
 
