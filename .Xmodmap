@@ -1,3 +1,1 @@
 pointer = 1 2 3 5 4 7 6 8 9 10 11 12
-keycode 71 = XF86MonBrightnessDown NoSymbol XF86MonBrightnessDown
-keycode 72 = XF86MonBrightnessUp NoSymbol XF86MonBrightnessUp
