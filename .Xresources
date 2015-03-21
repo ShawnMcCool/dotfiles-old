@@ -1,4 +1,5 @@
 XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
 XTerm*fastScroll: true
 urxvt*font: xft:Terminus:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12
 Xft.antialias:  true

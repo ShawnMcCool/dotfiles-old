@@ -9,18 +9,18 @@ xrdb -merge ~/.Xresources &
 
 ## Desktop background or picture
 #feh --bg-scale "/home/shawn/Pictures/Wallpapers/linux.jpg" &
-feh --bg-scale "/home/shawn/Pictures/black.png" &
+#feh --bg-scale "/home/shawn/Pictures/black.png" &
 #feh --bg-scale "/home/shawn/Pictures/Wallpapers/divided_kingdom.jpg" &
 
 # default volume 
 pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo '50%' &
 
 # load "funny" sample
-pactl upload-sample ~/.i3/that_was_easy.wav that_was_easy &
+#pactl upload-sample ~/.i3/that_was_easy.wav that_was_easy &
 #pactl upload-sample ~/.i3/volume_blip.wav volume_blip &
 
 # lcd brightness
-xbacklight -set 100 &
+xbacklight -set 80 &
 
 # disable beeps
 xset -b &
@@ -32,11 +32,11 @@ setxkbmap dvorak
 xset dpms 600 1200 2000 &
 
 # clipboard manager
-LC_ALL=C parcellite &
+#LC_ALL=C parcellite &
 # wifi manager
-LC_ALL=C nm-applet &
+#LC_ALL=C nm-applet &
 # Copy.com cloud storage agent
-LC_ALL=C /home/shawn/Apps/Copy/CopyAgent &
+#LC_ALL=C /home/shawn/Apps/Copy/CopyAgent &
 LC_ALL=C screencloud &
 
 # notifier
@@ -46,10 +46,7 @@ dunst &
 xrefresh &
 
 # special keys
-sleep 5s && xmodmap /home/shawn/.Xmodmap &
-
-# start workrave
-#workrave &
+sleep 1s && xmodmap /home/shawn/.Xmodmap &
 
 # configure natural scrolling for touchpad
 # configure normal scrolling for mouse
