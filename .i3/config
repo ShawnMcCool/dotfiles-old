@@ -268,7 +268,8 @@ client.urgent #CE0007 #182131 #3ea1bci
 focus_follows_mouse no
 
 # startup sublime text as scratchpad
-exec --no-startup-id /usr/bin/subl3
+#exec --no-startup-id /usr/bin/subl3
+#exec i3-msg '[title="Sublime Text$$"]' move scratchpad
 bindsym $mod+l [title="Sublime Text$$"] scratchpad show
 for_window [class="Sublime Text$$"] move to scratchpad
 

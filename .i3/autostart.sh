@@ -36,7 +36,7 @@ xset dpms 600 1200 2000 &
 # wifi manager
 #LC_ALL=C nm-applet &
 # Copy.com cloud storage agent
-#LC_ALL=C /home/shawn/Apps/Copy/CopyAgent &
+LC_ALL=C /usr/sbin/CopyAgent &
 LC_ALL=C screencloud &
 
 # notifier
@@ -50,16 +50,14 @@ sleep 1s && xmodmap /home/shawn/.Xmodmap &
 
 # configure natural scrolling for touchpad
 # configure normal scrolling for mouse
-xinput --set-button-map 'Logitech Unifying Device. Wireless PID:1017' 1 2 3 4 5
-xinput --set-button-map 11 1 2 3 4 5 
+#xinput --set-button-map 'Logitech Unifying Device. Wireless PID:1017' 1 2 3 4 5
+#xinput --set-button-map 11 1 2 3 4 5 
 
 # start up scratchpad apps
 
-#/usr/bin/gnome-terminal -t Ranger -x /usr/bin/ranger && i3-msg move scratchpad
-#nautilus --no-desktop && i3-msg move scratchpad
 #/usr/bin/subl && i3-msg move scratchpad
-
-
+/usr/bin/subl3 &
+sleep 1s && /usr/sbin/i3-msg '[title="Sublime Text$"]' move scratchpad&
 
 # all done
 exit 0
