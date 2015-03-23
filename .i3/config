@@ -1,87 +1,62 @@
+# Shawn McCool's i3 configuration file (created for DVORAK keyboard layout)
 
-# It will not be overwritten, so edit it as you like.
-#
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-#
-
-# i3 config file (v4)
-#
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+# Mod key is SUPER (windows key)
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
+
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:Source Sans Pro 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# one bar on both screens
+# one bar on all screens
 bar {
   position bottom
-  #mode hide
   modifier $mod
   status_command i3status
-  #tray_output LVDS1
   
-  colors {
-    urgent_workspace   #2f343a #900000 #ffffff
-  }
+  #colors {
+    #urgent_workspace   #2f343a #900000 #ffffff
+  #}
 }
 
-# Thinkpad
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 1 '-5%'; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 1 '+5%'; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
-#bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo 0; exec /usr/bin/pactl play-sample volume_blip; exec /usr/bin/killall -USR1 i3status
-bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
+# Thinkpad hotkeys
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 1 '-5%'; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 1 '+5%'; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume 1 0; exec /usr/bin/killall -USR1 i3status
 bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 10asy
 
-
-# Microsoft keyboard
-
-
-
 # scratcpad
 bindsym $mod+m move scratchpad
-#bindsym $mod+o scratchpad show
+# bindsym $mod+o scratchpad show
 
 # start a terminal
-#bindsym $mod+Return exec uxterm 
 bindsym $mod+Return exec gnome-terminal
+
 # kill focused window
 bindsym $mod+Shift+quotedbl kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+e exec dmenu_run
-#bindsym $mod+e exec /home/shawn/.cabal/bin/yeganesh 
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
 bindsym $mod+e exec --no-startup-id i3-dmenu-desktop
 
-# change focus
+# change focus (htns are the right-hand home row keys)
 bindsym $mod+h focus left
 bindsym $mod+t focus down
 bindsym $mod+n focus up
 bindsym $mod+s focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# Use Super + Arrow Keys to change brightness / volume (more pleasant than function / media keys)
+bindsym $mod+Left exec /usr/bin/pactl set-sink-volume 1 '-5%'; exec /usr/bin/killall -USR1 i3status
+bindsym $mod+Right exec /usr/bin/pactl set-sink-volume 1 '+5%'; exec /usr/bin/killall -USR1 i3status
+bindsym $mod+Up exec /usr/bin/xbacklight -inc 10
+bindsym $mod+Down exec /usr/bin/xbacklight -dec 10asy
 
 # move focused window
 bindsym $mod+Shift+H move left
@@ -150,7 +125,8 @@ bindsym $mod+Shift+J reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+P restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+greater exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+greater exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+greater exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -160,7 +136,7 @@ mode "resize" {
 # Pressing right will grow the window’s width.
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
-  bindsym h resize shrink width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
     bindsym t resize grow height 10 px or 10 ppt
     bindsym n resize shrink height 10 px or 10 ppt
     bindsym s resize grow width 10 px or 10 ppt
@@ -178,6 +154,7 @@ mode "resize" {
 
 bindsym $mod+p mode "resize"
 
+# in workspace mode, move workspaces to different monitors
 mode "workspace" {
   bindsym h move workspace to output left
   bindsym s move workspace to output right
@@ -188,13 +165,7 @@ mode "workspace" {
 
 bindsym $mod+w mode "workspace"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
-
-# workspace screens
+# choose which workspaces go to which displays
 #workspace 1 output DP2
 #workspace 2 output DP2
 #workspace 3 output HDMI3
@@ -206,74 +177,37 @@ bindsym $mod+w mode "workspace"
 #workspace 9 output LVDS1
 #workspace 10 output LVDS1
 
+# Application specific styles
 for_window [class="^XCalc$"] floating enable
 for_window [class="^URxvt$" instance="scratchpad"] border 1pixel; move scratchpad
-for_window [class="^Google-chrome$"] border 1pixel
-for_window [title="Lingea Lexicon 5$"] border none
-for_window [class="^GVim$"] split v, layout stacking
 for_window [class="^Xsane$"] floating enable
 for_window [class="^SFLphone"] floating enable
-for_window [class="^TeamViewer.exe$"] floating enable
-for_window [title="^TeamViewer$"] floating enable
-for_window [title="^Computers & Contacts$"] floating enable
-for_window [title="- TeamViewer -"] floating enable
-for_window [title="^Počítače a kontakty$"] floating enable
 #for_window [class="^Steam$"] floating enable; border none
 for_window [class="^feh$"] fullscreen
 for_window [class="^Meld$"] fullscreen
-for_window [class="^MPlayer$"] border none; fullscreen
-for_window [class="^hl_linux$"] border none; fullscreen
-for_window [class="^hl2_linux$"] border none; fullscreen
-for_window [title="^Renoise"] border none; fullscreen
-for_window [class="^Sflphone$"] floating enable
 
 for_window [class="^Nautilus$"] focus; floating enable;
-#for_window [title="^Ranger$"] focus; border none
-#for_window [title="^Ranger$"] focus; resize grow width 400px; resize grow height 400px;
-#for_window [title="^Ranger$"] focus; move left 200px; move up 200px;
-
 for_window [title="Sublime Text$$"] focus; floating enable;
-#for_window [title="Sublime Text$$"] focus; border none
-#for_window [title="Sublime Text$$"] focus; resize grow width 400px; resize grow height 400px;
-#for_window [title="Sublime Text$$"] focus; move left 200px; move up 200px;
-
-#for_window [title="Pier Solar HD"] floating_minimum_size 1600 x 900
-
 
 # next/previous workspace
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 bindsym $mod+Tab focus down
 
-#bindcode 108 exec --no-startup-id bash -l /home/shawn/temp/record.sh
-#bindsym $mod+/ move workspace to output left
-#bindsym $mod+= move workspace to output left
-
 exec --no-startup-id ~/.i3/autostart.sh
-#exec --no-startup-id i3-msg 'workspace 1; exec google-chrome'
-#exec --no-startup-id i3-msg 'workspace 3; exec gnome-terminal -x weechat'
-#exec --no-startup-id gnome-settings-daemon
-#exec --no-startup-id pulseaudio --start
-#exec --no-startup-id screencloud
-#exec --no-startup-id nm-applet
-#exec /home/shawn/Apps/Copy/x86_64/CopyAgent 
 
 client.focused #899ca1 #2E373D #899ca1
 client.focused_inactive #121212 #2e373d #899ca1
 client.urgent #CE0007 #2e373d #3ea1bc
 client.urgent #CE0007 #182131 #3ea1bci
 
-#bindsym $mod+r exec --no-startup-id gnome-terminal -t Ranger -x /usr/bin/ranger
-
 focus_follows_mouse no
 
-# startup sublime text as scratchpad
-#exec --no-startup-id /usr/bin/subl3
-#exec i3-msg '[title="Sublime Text$$"]' move scratchpad
+# Text editor configuration
 bindsym $mod+l [title="Sublime Text$$"] scratchpad show
 for_window [class="Sublime Text$$"] move to scratchpad
 
-# startup nautilus as scratchpad
+# File browser configuration
 exec --no-startup-id nautilus --no-desktop
 bindsym $mod+r [class="^Nautilus"] scratchpad show
 for_window [class="^Nautilus"] move to scratchpad
