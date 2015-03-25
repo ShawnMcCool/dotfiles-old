@@ -34,7 +34,7 @@ xset dpms 600 1200 2000 &
 # clipboard manager
 #LC_ALL=C parcellite &
 # wifi manager
-#LC_ALL=C nm-applet &
+LC_ALL=C nm-applet &
 # Copy.com cloud storage agent
 LC_ALL=C /usr/sbin/CopyAgent &
 LC_ALL=C screencloud &
