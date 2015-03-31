@@ -5,5 +5,5 @@ urxvt*font: xft:Terminus:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
-Xft.autohint:  true
+Xft.autohint:   true
 Xft.hintstyle:  hintfull

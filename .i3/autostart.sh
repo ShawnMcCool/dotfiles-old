@@ -1,9 +1,7 @@
 #!/bin/bash
 
-~/.i3/detect_screen_configuration.sh
+#~/.i3/detect_screen_configuration.sh
 
-# set background 
-# xsetroot -solid '#101010' 
 ## Merge Xresources
 xrdb -merge ~/.Xresources &
 
@@ -11,13 +9,10 @@ xrdb -merge ~/.Xresources &
 #feh --bg-scale "/home/shawn/Pictures/Wallpapers/linux.jpg" &
 #feh --bg-scale "/home/shawn/Pictures/black.png" &
 #feh --bg-scale "/home/shawn/Pictures/Wallpapers/divided_kingdom.jpg" &
+feh --bg-scale "/home/shawn/Pictures/pillars.png" &
 
 # default volume 
 pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo '50%' &
-
-# load "funny" sample
-#pactl upload-sample ~/.i3/that_was_easy.wav that_was_easy &
-#pactl upload-sample ~/.i3/volume_blip.wav volume_blip &
 
 # lcd brightness
 xbacklight -set 80 &
@@ -31,11 +26,8 @@ setxkbmap dvorak
 # dpms timeouts. standby -> suspend -> off
 xset dpms 600 1200 2000 &
 
-# clipboard manager
-#LC_ALL=C parcellite &
 # wifi manager
 LC_ALL=C nm-applet &
-# Copy.com cloud storage agent
 LC_ALL=C /usr/sbin/CopyAgent &
 LC_ALL=C screencloud &
 
@@ -46,7 +38,7 @@ dunst &
 xrefresh &
 
 # special keys
-sleep 1s && xmodmap /home/shawn/.Xmodmap &
+xmodmap /home/shawn/.Xmodmap &
 
 # configure natural scrolling for touchpad
 # configure normal scrolling for mouse
@@ -56,8 +48,24 @@ sleep 1s && xmodmap /home/shawn/.Xmodmap &
 # start up scratchpad apps
 
 #/usr/bin/subl && i3-msg move scratchpad
-/usr/bin/subl3 &
-sleep 1s && /usr/sbin/i3-msg '[title="Sublime Text$"]' move scratchpad&
+/usr/bin/subl3
+sleep 1s && /usr/sbin/i3-msg '[title="Sublime Text$"]' move scratchpad 
+
+# Telegram
+
+i3-msg 'workspace 3; exec telegram'
+
+ 
+sleep 1s && for ((n=0;n<3;n++))
+do
+  i3-msg '[title="Telegram"]' resize shrink width; resize shrink width
+done
+
+
+# Chrome
+
+sleep 1s && i3-msg 'workspace 1; exec google-chrome-stable'
+
 
 # all done
 exit 0

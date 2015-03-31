@@ -27,9 +27,9 @@ bar {
 }
 
 # Thinkpad hotkeys
-bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 1 '-5%'; exec /usr/bin/killall -USR1 i3status
-bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 1 '+5%'; exec /usr/bin/killall -USR1 i3status
-bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume 1 0; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 '-5%'; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 '+5%'; exec /usr/bin/killall -USR1 i3status
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume 0 0; exec /usr/bin/killall -USR1 i3status
 bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 10asy
 
@@ -186,7 +186,6 @@ for_window [class="^SFLphone"] floating enable
 for_window [class="^feh$"] fullscreen
 for_window [class="^Meld$"] fullscreen
 
-for_window [class="^Nautilus$"] focus; floating enable;
 for_window [title="Sublime Text$$"] focus; floating enable;
 
 # next/previous workspace
@@ -214,7 +213,10 @@ focus_follows_mouse no
 bindsym $mod+l [title="Sublime Text$$"] scratchpad show
 for_window [class="Sublime Text$$"] move to scratchpad
 
-# File browser configuration
-exec --no-startup-id nautilus --no-desktop
-bindsym $mod+r [class="^Nautilus"] scratchpad show
-for_window [class="^Nautilus"] move to scratchpad
+# Code configuration
+exec --no-startup-id i3-msg 'workspace 2; exec /usr/sbin/gnome-terminal'
+
+# Chat configuration
+exec --no-startup-id i3-msg 'workspace 3; exec /usr/sbin/gnome-terminal -e weechat'
+
+bindsym $mod+r exec nautilus --no-desktop
