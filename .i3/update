@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo pacman -Syu --noconfirm
+yaourt -Syua --noconfirm

@@ -7,9 +7,9 @@ xrdb -merge ~/.Xresources &
 
 ## Desktop background or picture
 #feh --bg-scale "/home/shawn/Pictures/Wallpapers/linux.jpg" &
-#feh --bg-scale "/home/shawn/Pictures/black.png" &
+feh --bg-scale "/home/shawn/Pictures/Black.png" &
 #feh --bg-scale "/home/shawn/Pictures/Wallpapers/divided_kingdom.jpg" &
-feh --bg-scale "/home/shawn/Pictures/pillars.png" &
+#feh --bg-scale "/home/shawn/Pictures/pillars.png" &
 
 # default volume 
 pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo '50%' &
@@ -55,6 +55,7 @@ sleep 1s && /usr/sbin/i3-msg '[title="Sublime Text$"]' move scratchpad
 
 i3-msg 'workspace 3; exec telegram'
 
+i3-msg 'exec albert'
  
 sleep 1s && for ((n=0;n<3;n++))
 do
