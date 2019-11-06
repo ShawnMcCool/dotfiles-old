@@ -1,0 +1,16 @@
+#!/bin/bash
+
+xrandr --output eDP1 --mode 1920x1080 
+xrandr --output DP2-2 --mode 2560x1440 --primary --right-of eDP1
+xrandr --output DP2-1 --mode 1920x1080 --right-of DP2-2
+
+#xrandr --output eDP1 --mode 1920x1080 --pos 0x360 --rotate normal --output DP1 --off --output HDMI1 --off --output DP2 --off --output HDMI2 --off --output DP2-1 --mode 1920x1080 --pos 4480x360 --rotate normal --output DP2-2 --primary --mode 2560x1440 --pos 1920x0 --rotate normal --output DP2-3 --off
+
+i3-msg "workspace 1; move workspace to output DP2-2"
+i3-msg "workspace 2; move workspace to output DP2-2"
+i3-msg "workspace 4; move workspace to output DP2-2"
+i3-msg "workspace 3; move workspace to output DP2-1"
+
+#nitrogen --random --set-auto --head=0
+#nitrogen --random --set-auto --head=1
+#nitrogen --random --set-auto --head=2
