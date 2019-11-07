@@ -6,20 +6,19 @@ export LC_CTYPE=en_US.UTF-8
 HISTSIZE=100000
 SAVEHIST="$HISTSIZE"
 HISTFILE=~/.zsh_history
+# security measure, don't save a line to history if preceded by a space
+setopt hist_ignore_space
 
 # share history between terminals
 setopt SHARE_HISTORY
 # ignore repeated duplicate lines (ls etc)
 setopt hist_ignore_all_dups
-# security measure, don't save a line to history if preceded by a space
-setopt hist_ignore_space
 
 # annoying zprezto zsh behavior
 unsetopt correct_all
 setopt dvorak
 
 # termite
-#export TERM=xterm-256color
 export PATH=$PATH$:~/scripts
 
 alias ltr="ls -ltr"
@@ -44,7 +43,7 @@ alias 'hq=lq'
 alias 'hr=lr'
 alias 'htr=ltr'
 
-# conevienence
+# convenience
 alias 'mkdir=mkdir -p'
 alias 'df=df --exclude-type=tmpfs --exclude-type=devtmpfs'
 alias 'd.=df -h . |sed 1d'
@@ -88,13 +87,12 @@ zh() {
 alias 'aoeu=setxkbmap us -option' # (us keyboard layout, no special options)
 alias 'asdf=setxkbmap us dvorak -option compose:menu,ctrl:nocaps,terminate:ctrl_alt_bksp,lv3:ralt_alt 2> /dev/null || setxkbmap dvorak us 2> /dev/null || setxkbmap dvorak'
 
-
-# Source Prezto.
+# source prezto configure to trigger terminal theme setup
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# to customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 if [[ $TERM == xterm-termite ]]; then
